@@ -7,7 +7,7 @@
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800;900&display=swap"
             rel="stylesheet" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Todo list</title>
+        <title>Post list</title>
         <style>
             .app {
                 visibility: hidden;
@@ -20,11 +20,11 @@
     <body>
         <div class="app container">
             <header>
-                <h1>ToDo List Application</h1>
+                <h1>Post List Application</h1>
             </header>
             <main>
                 <section class="add-todo">
-                    <button id="addBtn" type="button">Create todo</button>
+                    <button id="addBtn" type="button">Create post</button>
                 </section>
                 <section class="todo-list"></section>
             </main>
@@ -42,8 +42,15 @@
                         d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z" />
                 </svg>
                 <div class="modal_content">
-                    <div class="modal__title">Добавлене todo</div>
-                    <form class="modal__main">
+                    <div class="modal__title">Добавление поста</div>
+                    <form class="modal__main" id="addForm">
+                        <label class="modal__control" for="tail"
+                            >Автор:</label
+                        >
+                        <input
+                                class="modal__control modal__control-tail"
+                                type="number"
+                                name="userId" />
                         <label class="modal__control" for="title"
                             >Наименование:</label
                         >
@@ -51,18 +58,60 @@
                             class="modal__control modal__control-title"
                             type="text"
                             name="title" />
-                        <label class="modal__control" for="description"
+                        <label class="modal__control" for="body"
                             >Описание:</label
                         >
                         <textarea
                             class="modal__control modal__control-des"
                             type="text"
-                            name="description"></textarea>
+                            name="body"></textarea>
 
                         <div class="form-errors"></div>
 
                         <button class="modal__control submit-btn" type="button">
                             Создать
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="modalUpd" data-modal="2">
+                <svg
+                    class="modal__cross js-modal-close"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                        d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z" />
+                </svg>
+                <div class="modal_content">
+                    <div class="modal__title">Изменение поста</div>
+                    <form class="modal__main" id="updForm">
+                        <label class="modal__control" for="tail"
+                        >Автор:</label
+                        >
+                        <input
+                            class="modal__control modal__control-tail"
+                            type="number"
+                            name="userId" />
+                        <label class="modal__control" for="title"
+                        >Наименование:</label
+                        >
+                        <input
+                            class="modal__control modal__control-title"
+                            type="text"
+                            name="title" />
+                        <label class="modal__control" for="body"
+                        >Описание:</label
+                        >
+                        <textarea
+                            class="modal__control modal__control-des"
+                            type="text"
+                            name="body"></textarea>
+
+                        <div class="formUpd-errors"></div>
+
+                        <button class="modal__control submit-upd-btn" type="button">
+                            Изменить
                         </button>
                     </form>
                 </div>
