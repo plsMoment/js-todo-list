@@ -1,7 +1,6 @@
 .card {
     display: flex;
     flex-flow: column nowrap;
-
     border: 1px solid black;
 }
 
@@ -10,12 +9,15 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
-
     padding: 8px 0;
-    margin-bottom: 12px;
 }
 
-.card__description {
+.card__tail {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.card__body {
     padding: 16px;
     font-size: 20px;
 }
@@ -33,4 +35,16 @@
 .card__remove {
     padding: 0 16px;
     margin-right: 16px;
+}
+
+.card__update {
+    font-size: 15px;
+    padding: 0 16px;
+    margin-right: 16px;
+    margin-left: 16px;
+}
+
+.card__author {
+    margin-top: 8px;
+    font-size: 20px;
 }

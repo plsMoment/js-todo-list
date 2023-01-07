@@ -17,7 +17,7 @@
 
 /* Стили для модальных окон */
 
-.modal {
+.modal, .modalUpd {
     /* Скрываем окна  */
     opacity: 0;
     visibility: hidden;
@@ -45,6 +45,7 @@
 /* Стили для активных классов подложки и окна */
 
 .modal.active,
+.modalUpd.active,
 .overlay.active {
     opacity: 1;
     visibility: visible;
@@ -80,9 +81,14 @@
     width: 400px;
 }
 
+.modal__control-tail {
+    width: 400px;
+}
+
 .modal__control-des {
     height: 210px;
     width: 400px;
+    max-width: 100%;
 }
 
 /* Стили для кнопки закрытия */
@@ -97,7 +103,7 @@
     cursor: pointer;
 }
 
-.form-errors {
+.form-errors, .formUpd-errors {
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-start;
