@@ -123,11 +123,13 @@ class TodoService {
         return container;
     }
 
-    updateTodo(card, title, body, userId) {
-        card.cardUserId = userId;
-        card.childNodes[0].childNodes[1].innerText = title;
-        card.childNodes[1].innerText = body;
-        this.api.fetchUser(userId).then((res) => card.childNodes[2].childNodes[1].innerText = `Author: ${res.username}`);
+    updateTodo(title, body, userId) {
+        this.card.cardUserId = userId;
+        this.card.getElementsByClassName('card__title')[0].innerText = title;
+        this.card.getElementsByClassName('card__body')[0].innerText = body;
+        this.api.fetchUser(userId).then((res) => {
+            this.card.getElementsByClassName('card__author')[0].innerText = `Author: ${res.username}`
+        });
     }
 
     openUpd(event) {
@@ -139,10 +141,10 @@ class TodoService {
                 .value = this.card.cardUserId;
         document.getElementById("updForm")
                 .elements['title']
-                .value = this.card.childNodes[0].childNodes[1].innerText;
+                .value = this.card.getElementsByClassName('card__title')[0].innerText;
         document.getElementById("updForm")
                 .elements['body']
-                .value = this.card.childNodes[1].innerText;
+                .value = this.card.getElementsByClassName('card__body')[0].innerText;
     }
 
     closeUpd() {
@@ -168,7 +170,7 @@ class TodoService {
         }
 
         this.api.update(this.card.cardId, formData).then((data) => {
-            this.updateTodo(this.card, data.title, data.body, data.userId);
+            this.updateTodo(data.title, data.body, data.userId);
         });
 
         form.reset();
@@ -255,6 +257,8 @@ class ModalService {
     }
 
     close() {
+        document.getElementById("addForm").reset();
+        document.getElementsByClassName('form-errors')[0].innerHTML = '';
         this.modal.classList.remove('active');
         this.overlay.classList.remove('active');
     }
